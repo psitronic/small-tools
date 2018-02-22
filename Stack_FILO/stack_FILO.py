@@ -9,29 +9,31 @@ Methods:
     peek()
     size()
     is_empty()
-    
+
 @author: Andrey Sidorenko @psitronic
 """
+
 
 class Stack():
     """
     A class to implement the FILO stack sturcture
     """
     def __init__(self):
-        
+
         self.stack = []
-        
-    def push(self,element):
+
+    def push(self, element):
         """
         Add an element to the bottom of the stack
         """
-        
-        self.stack.insert(0,element)
-        
+
+        self.stack.insert(0, element)
+
     def pop(self):
         """
         Pops the bottom element in the stack
-        If the stack is not empty removes and returns the bottom element, None otherwise
+        If the stack is not empty removes and returns
+        the bottom element, None otherwise
         """
         try:
             return self.stack.pop(0)
@@ -47,16 +49,16 @@ class Stack():
             return self.stack[0]
         except IndexError:
             return None
-        
+
     def is_empty(self):
         """
         Check if the satck is empty
         """
         return self.stack == []
-    
+
     def size(self):
         """
         Returns the stack length
         """
-        
+
         return len(self.stack)

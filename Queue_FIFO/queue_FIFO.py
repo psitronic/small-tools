@@ -2,7 +2,7 @@
 Created on Wed Feb 21 09:46:20 2018
 
 The implementation of the linear data staructures:
-    Queue 'Fast In First Out'
+    Queue 'First In First Out'
 Methods:
     add(element)
     get()

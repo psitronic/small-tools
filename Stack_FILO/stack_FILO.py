@@ -2,7 +2,7 @@
 Created on Wed Feb 21 09:46:20 2018
 
 The implementation of the linear data staructures:
-    Stack 'Fast In Last Out'
+    Stack 'First In Last Out'
 Methods:
     push(element)
     pop()

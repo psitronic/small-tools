@@ -4,8 +4,10 @@ Created on Wed Feb 23 11:51:20 2018
 The implementation of the linear data staructures:
     Deque
 Methods:
-    add(element)
-    get()
+    add_front(element)
+    add_rear(element)
+    get_front()
+    get_rear()
     size()
     is_empty()
 

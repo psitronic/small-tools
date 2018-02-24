@@ -18,9 +18,9 @@ class LinkedList(object):
     """
     A class to implement the linked list
     """
-    def __init__(self, head = None):
+    def __init__(self):
         
-        self.head = head
+        self.head = None
         
     def is_empty(self):
         return self.head == None

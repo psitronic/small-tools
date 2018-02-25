@@ -24,8 +24,8 @@ class LinkedList(object):
     
     def search(self, element):
         """
-        Searches for the element in the linked list
-        Takes an element
+        Searches for the element in the linked list.
+        Takes an element.
         Returns True if the element in the list, False otherwise
         """
         node = self.head # get the first node (head)
@@ -39,7 +39,10 @@ class LinkedList(object):
 
     def delete(self, element):
         """
-        Removes an element from the list
+        Removes an element from the list.
+        Takes an element to remove.
+        Modifies the list.
+        Returns nothing.
         """
         current_node = self.head
         previous_node = None
@@ -48,7 +51,7 @@ class LinkedList(object):
         
         while not found and not self.is_empty():
             
-            found = self.search_for(element)
+            found = self.search(element)
 
             if not found:
                 previous_node = current_node
@@ -62,7 +65,7 @@ class LinkedList(object):
     
     def size(self):
         """
-        Returns the size of the list
+        Returns the number of elements in the list
         """
         
         head = self.head # get the first node (head)
@@ -77,8 +80,36 @@ class LinkedList(object):
     def is_empty(self):
         return self.head == None
         
-    def add(self,data):
+    def add(self, data):
+        """
+        Adds a new element to the list
+        Takes an element
+        Returns nothing
+        """
         new_node = Node(data)
         new_node.set_pointer(self.head)
         self.head = new_node
+        
+    def append(self, element):
+        """
+        Adds a new element to the end of the list making it the last element
+        in the list
+        Takes an element
+        Returns nothing
+        """
+        if self.is_empty:
+            self.add(element)
+        else:
+            current = self.head # get the first node (head)
+            previous = None
+            # searching for the last element in the list
+            # the last element has a pointer to None
+            while current != None:
+                previous = current            
+                current = current.get_pointer() # move to the next node
+            
+            new_node = Node(element) # create a new node with data and pointer to None
+            new_node.set_pointer(None)
+            previous.set_pointer(new_node) # set the pointer of previous last to the new las node
+
         

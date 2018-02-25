@@ -6,11 +6,14 @@ The implementation of the data staructures:
     LinkedList
 Methods:
     add(element)
-    delete(element)
-    size()
     append(element)
+    delete(element)    
+    index(element)
+    insert(pos,element)
     is_empty()
+    pop()
     search(element)
+    size()
     
 @author: Andrey Sidorenko @psitronic
 """
@@ -149,3 +152,23 @@ class LinkedList(object):
         else:
             raise Exception("IndexError: list index out of range")
             
+    def pop(self):
+        """
+        Removes and returns the last element in the list.
+        Returns the popped element
+        """        
+        current = self.head # get the first node (head)
+        previous = None
+        counter = 1
+
+        while counter < self.size():
+            counter += 1
+            previous = current
+            current = current.get_pointer() # move to the next node
+        
+        if previous != None:
+            previous.set_pointer(None)
+        else:
+            self.head = current.get_pointer()
+            
+        return current.get_value()

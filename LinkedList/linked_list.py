@@ -8,10 +8,11 @@ Methods:
     add(element)
     append(element)
     delete(element)    
-    index(element)
-    insert(pos,element)
+    index(index, element)
+    insert(index, element)
     is_empty()
     pop()
+    pop(index)
     search(element)
     size()
     
@@ -20,6 +21,7 @@ Methods:
 
 # to implement a list we need nodes
 from node import Node
+
 
 class LinkedList(object):
     """
@@ -152,23 +154,35 @@ class LinkedList(object):
         else:
             raise Exception("IndexError: list index out of range")
             
-    def pop(self):
+    def pop(self, index = None):
         """
-        Removes and returns the last element in the list.
-        Returns the popped element
+        Removes and returns the element at the index postion in the list.
+        Returns the removed element
         """        
         current = self.head # get the first node (head)
         previous = None
         counter = 1
-
-        while counter < self.size():
-            counter += 1
-            previous = current
-            current = current.get_pointer() # move to the next node
-        
-        if previous != None:
-            previous.set_pointer(None)
-        else:
-            self.head = current.get_pointer()
+        # if no index provided then pop the last element in the list
+        if index == None:
+            while counter < self.size():
+                counter += 1
+                previous = current # remember the current node
+                current = current.get_pointer() # move to the next node
             
+            if previous != None:
+                previous.set_pointer(None)
+            else:
+                self.head = current.get_pointer()
+        else: # else pop the element at the position index
+            while counter != index + 1:
+                counter += 1
+                previous = current # remember the current node
+                current = current.get_pointer() # move to the next node
+
+                if previous != None:
+                    previous.set_pointer(current.get_pointer())
+                else:
+                    self.head = current.get_pointer()
+
         return current.get_value()
+    

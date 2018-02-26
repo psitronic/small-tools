@@ -57,20 +57,18 @@ class LinkedList(object):
         current_node = self.head
         previous_node = None
 
-        found = False
-
-        while not found and not self.is_empty():
+        while current_node != None and not self.is_empty():
 
             if element == current_node.get_value():
-                found = True
+                if previous_node != None:
+                    previous_node.set_pointer(current_node.get_pointer())
+                else:
+                    self.head = current_node.get_pointer()
+                break
             else:
                 previous_node = current_node
                 current_node = current_node.get_pointer()
                 
-            if previous_node != None:
-                previous_node.set_pointer(current_node.get_pointer())
-            else:
-                self.head = current_node.get_pointer()
 
     def size(self):
         """

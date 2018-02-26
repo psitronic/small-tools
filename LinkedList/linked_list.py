@@ -61,16 +61,16 @@ class LinkedList(object):
 
         while not found and not self.is_empty():
 
-            found = self.search(element)
-
-            if not found:
+            if element == current_node.get_value():
+                found = True
+            else:
                 previous_node = current_node
                 current_node = current_node.get_pointer()
+                
+            if previous_node != None:
+                previous_node.set_pointer(current_node.get_pointer())
             else:
-                if previous_node != None:
-                    previous_node.set_pointer(current_node.get_pointer())
-                else:
-                    self.head = current_node.get_pointer()
+                self.head = current_node.get_pointer()
 
     def size(self):
         """
@@ -197,7 +197,7 @@ class LinkedList(object):
         while current != None:
             result += str(current.get_value())
             current = current.get_pointer() # move to the next node
-        result = ", ".join(result)
+        result = " -> ".join(result)
 
-        return '[' + result + ']'
+        return '[{}]'.format(result)
 

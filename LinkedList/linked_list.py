@@ -8,13 +8,14 @@ Methods:
     add(element)
     append(element)
     delete(element)    
-    index(index, element)
+    index(element)
     insert(index, element)
     is_empty()
     pop()
     pop(index)
     search(element)
     size()
+    __str__()
     
 @author: Andrey Sidorenko @psitronic
 """
@@ -186,3 +187,17 @@ class LinkedList(object):
 
         return current.get_value()
     
+    def __str__(self):
+        """
+        Return a string representation of the list
+        """
+        current = self.head # get the first node (head)
+        result = ''
+        
+        while current != None:
+            result += str(current.get_value())
+            current = current.get_pointer() # move to the next node
+        result = ", ".join(result)
+
+        return '[' + result + ']'
+

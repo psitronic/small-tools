@@ -222,9 +222,9 @@ class LinkedList(object):
         result = ''
         
         while current != None:
-            result += str(current.get_value())
+            result = result + str(current.get_value()) + " -> "
             current = current.get_pointer() # move to the next node
-        result = " -> ".join(result)
+        result = result[:-4]
 
         return '[{}]'.format(result)
 

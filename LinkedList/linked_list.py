@@ -21,7 +21,34 @@ Methods:
 """
 
 # to implement a list we need nodes
-from node import Node
+#from node import Node
+
+class Node(object):
+    """
+    A class to implement a node
+    """
+    def __init__(self,value = None):
+        
+        self.value = value
+        self.pointer = None
+        
+    def get_value(self):
+        """
+        Returns the value of the node
+        """
+        return self.value
+    
+    def get_pointer(self):
+        """
+        Returns the reference to the next node
+        """
+        return self.pointer
+    
+    def set_pointer(self,pointer):
+        """
+        Sets the reference to the next node
+        """
+        self.pointer = pointer
 
 
 class LinkedList(object):
@@ -160,10 +187,10 @@ class LinkedList(object):
         """        
         current = self.head # get the first node (head)
         previous = None
-        counter = 1
+        counter = 0
         # if no index provided then pop the last element in the list
         if index == None:
-            while counter < self.size():
+            while counter < self.size() - 1:
                 counter += 1
                 previous = current # remember the current node
                 current = current.get_pointer() # move to the next node
@@ -173,15 +200,17 @@ class LinkedList(object):
             else:
                 self.head = current.get_pointer()
         else: # else pop the element at the position index
-            while counter != index + 1:
-                counter += 1
-                previous = current # remember the current node
-                current = current.get_pointer() # move to the next node
-
-                if previous != None:
-                    previous.set_pointer(current.get_pointer())
+            while counter < self.size():
+                if counter == index:
+                    if previous != None:
+                        previous.set_pointer(current.get_pointer())
+                    else:
+                        self.head = current.get_pointer()
+                    break
                 else:
-                    self.head = current.get_pointer()
+                    counter += 1
+                    previous = current
+                    current = current.get_pointer()
 
         return current.get_value()
     

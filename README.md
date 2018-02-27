@@ -3,7 +3,7 @@ Implementations of  Data Structures and Algorithms in Python
 
 <ul>
 <li>
-<h3><a href="https://github.com/psitronic/Data-Structures-and-Algorithms-in-JS/tree/master/Linked%20Lists">Nodes</a></h3>
+<h3><a href="https://github.com/psitronic/small-tools/tree/master/Node">Nodes</a></h3>
 <p>
 A basic building block for the linked list implementation. Each node contains the list <i>element</i> and <i>pointer</i> - a reference to the next node. It is implemented as a class with the setters and getters to access and modify the element and the pointer:
 <ul>
@@ -14,7 +14,7 @@ A basic building block for the linked list implementation. Each node contains th
 </p>
 </li>
 <li>
-<h3><a href="https://github.com/psitronic/Data-Structures-and-Algorithms-in-JS/tree/master/Linked%20Lists">Singly Linked Lists (unordered)</a></h3>
+<h3><a href="https://github.com/psitronic/small-tools/tree/master/LinkedList">Singly Linked Lists (unordered)</a></h3>
 <p>A singly linked list is a collection of nodes where each node points to the next node. The implemented list operations:
 <ul>
 <li><b>LinkedList()</b> creates a new empty list.</li>

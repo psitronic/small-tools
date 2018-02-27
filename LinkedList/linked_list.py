@@ -54,20 +54,20 @@ class LinkedList(object):
         Modifies the list.
         Returns nothing.
         """
-        current_node = self.head
-        previous_node = None
+        current = self.head
+        previous = None
 
-        while current_node != None and not self.is_empty():
+        while current != None and not self.is_empty():
 
-            if element == current_node.get_value():
-                if previous_node != None:
-                    previous_node.set_pointer(current_node.get_pointer())
+            if element == current.get_value():
+                if previous != None:
+                    previous.set_pointer(current.get_pointer())
                 else:
-                    self.head = current_node.get_pointer()
+                    self.head = current.get_pointer()
                 break
             else:
-                previous_node = current_node
-                current_node = current_node.get_pointer()
+                previous = current
+                current = current.get_pointer()
                 
 
     def size(self):
@@ -187,7 +187,7 @@ class LinkedList(object):
     
     def __str__(self):
         """
-        Return a string representation of the list
+        Returns a string representation of the list
         """
         current = self.head # get the first node (head)
         result = ''

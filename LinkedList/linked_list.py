@@ -134,13 +134,16 @@ class LinkedList(object):
         previous = None
         # searching for the last element in the list
         # the last element has a pointer to None
-        while current != None:
-            previous = current            
-            current = current.get_pointer() # move to the next node
-
-        new_node = Node(element) # create a new node with data and pointer to None
-        new_node.set_pointer(None)
-        previous.set_pointer(new_node) # set the pointer of previous last to the new las node
+        if self.is_empty():
+            self.add(element)
+        else:
+            while current != None:
+                previous = current            
+                current = current.get_pointer() # move to the next node
+    
+            new_node = Node(element) # create a new node with data and pointer to None
+            new_node.set_pointer(None)
+            previous.set_pointer(new_node) # set the pointer of previous last to the new las node
 
     def index(self, element):
         """
